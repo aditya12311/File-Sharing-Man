@@ -8,6 +8,7 @@ import sys
 from pyrogram import Client
 
 from config import (
+    ADMINS,
     API_HASH,
     APP_ID,
     CHANNEL_ID,
@@ -16,6 +17,7 @@ from config import (
     OWNER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
+    blacklistman,
 )
 
 
@@ -34,6 +36,12 @@ class Bot(Client):
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
+        
+        if OWNER_ID and ADMINS in blacklistman:
+            self.LOGGER(__name__).warning(
+                "MAKANYA GA USAH BERTINGKAH GOBLOK, BOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @mrismanaziz"
+            )
+        sys.exit(1)
 
         if FORCE_SUB_CHANNEL:
             try:
