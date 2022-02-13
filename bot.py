@@ -15,6 +15,7 @@ from config import (
     FORCE_SUB_CHANNEL,
     LOGGER,
     OWNER,
+    OWNER_ID,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
     blacklistman,
